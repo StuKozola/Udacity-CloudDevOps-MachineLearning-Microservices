@@ -10,10 +10,36 @@ setup:
 	# source ~/.devops/bin/activate
 	python3 -m venv ~/.devops
 
+activate:
+	# activate virtual environment
+	source ~/.devops/bin/activate
+
 install:
 	# This should be run from inside a virtualenv
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
+
+install-hadolint:
+	# install hadolint
+	sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.22.1/hadolint-Linux-x86_64
+	sudo chmod +x /bin/hadolint
+
+install-docker:
+	# install docker
+	sudo apt update
+	sudo apt install apt-transport-https ca-certificates curl software-properties-common
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+	sudo apt update
+	apt-cache policy docker-ce
+	sudo apt install docker-ce
+	sudo systemctl status docker
+install-minikube:
+	# install minikube
+	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+isntall-all: install install-hadolint install-docker install-minikube
 
 test:
 	# Additional, optional, tests could go here
