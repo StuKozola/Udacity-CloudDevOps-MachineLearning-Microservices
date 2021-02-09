@@ -10,16 +10,13 @@ setup:
 	# source ~/.devops/bin/activate
 	python3 -m venv ~/.devops
 
-activate:
-	# activate virtual environment
-	source ~/.devops/bin/activate
-
 install:
 	# This should be run from inside a virtualenv
 	pip install --upgrade pip 
 	pip install -r requirements.txt
 	pip install pylint
 	pip install pytest
+	pip freeze > requirements.txt
 
 install-hadolint:
 	# install hadolint
