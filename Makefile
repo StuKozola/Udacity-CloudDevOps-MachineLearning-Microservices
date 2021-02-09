@@ -34,6 +34,7 @@ install-docker:
 	apt-cache policy docker-ce
 	sudo apt install docker-ce
 	sudo systemctl status docker
+
 install-minikube:
 	# install minikube
 	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
