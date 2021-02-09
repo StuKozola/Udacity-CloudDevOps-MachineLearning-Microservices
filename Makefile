@@ -16,7 +16,7 @@ install:
 	pip install -r requirements.txt
 	pip install pylint
 	pip install pytest
-	pip freeze > requirements.txt
+	#pip freeze > requirements.txt
 
 install-hadolint:
 	# install hadolint
