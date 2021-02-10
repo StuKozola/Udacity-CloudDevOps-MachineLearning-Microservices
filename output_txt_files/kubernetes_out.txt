@@ -10,3 +10,13 @@ bostonml   1/1     Running   0          9m42s
 skozola@ah-skozola:/home/skozola/Udacity-CloudDevOps-MachineLearning-Microservices$ kubectl port-forward bostonml 8000:80
 Forwarding from 127.0.0.1:8000 -> 80
 Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+From other terminal:
+kozola@ah-skozola:/home/skozola/Udacity-CloudDevOps-MachineLearning-Microservices$ ./make_predictions.sh
+Port: 8000
+{
+    "prediction": [
+        20.35373177134412
+    ]
+}
